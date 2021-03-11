@@ -1,8 +1,8 @@
 # 2020CCE
 
-## 第一周作業
+## 第一週
 
-### 第一題 : 進階題:分式化簡
+### 進階題:分式化簡
 ```C
 #include <stdio.h>
 int main()
@@ -14,7 +14,7 @@ int main()
 			break;}
 }
 ```
-## 第二題 : 進階題：讀入整數反序列印
+## 進階題：讀入整數反序列印
 ```C
 #include <stdio.h>
 int main()
@@ -31,7 +31,7 @@ int main()
 }
 ```
 
-## 第三題 : 進階題：A的B次方函數
+## 進階題：A的B次方函數
 ```C
 #include <stdio.h>
 int MYPOWER(int n,int m)
@@ -50,7 +50,7 @@ int main(void)
 	return 0;
 }
 ```
-## 第四題 : 進階題：漸增數列相加 
+## 進階題：漸增數列相加 
 ```C
 #include <stdio.h>
 int main()
@@ -64,7 +64,7 @@ int main()
 	printf("%d\n",ans);
 }
 ```
-## 第五題 : 基礎題：找零錢 
+## 基礎題：找零錢 
 ```C
 #include <stdio.h>
 int main()
@@ -74,7 +74,7 @@ int main()
 	printf("%d=50*%d+5*%d+1*%d\n",n,n/50,(n%50)/5,n%50%5);
 }
 ```
-## 第六題 : 基礎題：因數個數 
+## 基礎題：因數個數 
 ```C
 #include <stdio.h>
 int main()
@@ -87,7 +87,7 @@ int main()
 	printf("%d\n",m);
 }
 ```
-## 第七題 : 基礎題：找倍數 
+## 基礎題：找倍數 
 ```C
 #include <stdio.h>
 int main()
@@ -104,7 +104,7 @@ int main()
 	printf("%d\n",b);
 }
 ```
-## 第八題 : 基礎題：整數轉換為等級
+## 基礎題：整數轉換為等級
 ```C
 #include <stdio.h>
 int main()
@@ -117,7 +117,7 @@ int main()
 	else printf("F\n");
 }
 ```
-# 第二周
+# 第二週
 
 ## 現在改用陣列 int n[3]={10, 20, 30}, 再用指標, 去改裡面的值
 ```C
@@ -140,4 +140,134 @@ int main()
     printf("n[0]:%d n[1]:%d n[2]:%d\n",n[0],n[1],n[2]);
 }
 
+```
+# 第三週
+
+## 進階題：大小寫轉換
+```C
+#include <stdio.h>
+int main()
+{
+	char a[10];
+	scanf("%s",&a);
+	for (int i=0;a[i]!=0;i++){
+		if (a[i]>='0' && a[i]<='9'){
+			printf("%c",a[i]);
+		}
+		else if(a[i]>='A' && a[i]<='Z'){
+			a[i]+=32;
+			printf("%c",a[i]);
+		}
+		else if(a[i]>='a' && a[i]<='z'){
+			a[i]-=32;
+			printf("%c",a[i]);
+		}
+	}
+		printf("\n");
+}
+```
+## 進階題：漸增數列相加
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=0;
+	scanf("%d",&n);
+	for(int i=1;i<n;i++){
+		ans+=i*(i+1);
+	}
+	printf("%d\n",ans);
+}
+```
+## 進階題：計算陣列的平方值
+```C
+#include <stdio.h>
+int main()
+{
+	int n,a;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){
+		scanf("%d",&a);
+		printf("%d,",a*a);
+	}
+	printf("\n");
+}
+```
+## 進階題：2進位轉10進位 
+```C
+#include <stdio.h>
+int main()
+{
+	int n,ans=0,m=1;
+	scanf("%d",&n);
+	for(int i=0;i<4;i++){
+		ans+=n%10*m;
+		n/=10;
+		m*=2;
+	}
+	printf("%d\n",ans);
+}
+```
+## 基礎題：計算幾週與幾天
+```C
+#include <stdio.h>
+int main()
+{
+	int a;
+	scanf("%d",&a);
+	printf("%d %d\n",a/7,a%7);
+}
+```
+## 基礎題：計程車資計算
+```C
+#include <stdio.h>
+int main()
+{
+	int a;
+	scanf("%d",&a);
+	if (a<=2000) printf("100\n");
+	else  if ((a-2000)%500==0){printf("%d\n",(a-2000)/500*5+100);}
+	else printf("%d\n",(a-2000)/500*5+105);
+}
+```
+## 基礎題：兩數間可被5整除的整數
+```C
+#include <stdio.h>
+int main()
+{
+	int a,b;
+	scanf("%d%d",&a,&b);
+	if(a>b)
+	{
+		int t=a;a=b;b=t;
+	}
+	for (int i=a;i<=b;i++){
+		if (i%5==0){printf("%d\n",i);} 
+	}
+}
+```
+## 基礎題：整數間最大距離 
+```C
+#include <stdio.h>
+int main()
+{
+	int a[3],ans;
+	for(int i=0;i<3;i++){
+		scanf("%d",&a[i]);}
+	for(int i=0;i<3;i++){
+		for(int i=0;i<2;i++){	
+			if(a[i]>a[i+1])
+			{
+				int t=a[i];
+				a[i]=a[i+1];
+				a[i+1]=t;
+			}
+		}
+		}
+	for(int i=0;i<3;i++){
+		ans=a[2]-a[0];
+	}
+	printf("%d\n",ans);
+	
+}
 ```
