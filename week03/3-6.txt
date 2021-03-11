@@ -1,0 +1,9 @@
+#include <stdio.h>
+int main()
+{
+	int a;
+	scanf("%d",&a);
+	if (a<=2000) printf("100\n");
+	else  if ((a-2000)%500==0){printf("%d\n",(a-2000)/500*5+100);}
+	else printf("%d\n",(a-2000)/500*5+105);
+}
