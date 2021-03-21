@@ -1,0 +1,8 @@
+#incldue <stdio.h>
+struct DATA{
+	float x,y,z;
+} point1 ;
+int main()
+{
+	
+}
