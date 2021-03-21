@@ -1,0 +1,15 @@
+#incldue <stdio.h>
+struct DATA{
+	float x,y,z;
+} a,b,c;
+struct DATA points[5];
+int main()
+{
+	struct DATA d,e,f;
+	for(int i=0;i<5;i++){
+		point1.x=3;
+		point1.y=4;
+		point1.z=6;
+		printf("%f %f %ｆ",points[i].x,point1s[i].y,points[i].z);
+	}
+}
