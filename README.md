@@ -271,3 +271,86 @@ int main()
 	
 }
 ```
+##第四週
+### 指標練習1
+
+```C
+#include <stdio.h>
+int a[5]={0,10,20,30,40};
+int main()
+{
+	int *p=a[2];
+	*p=222;
+	
+	p=p+2;
+	*p=666;
+}
+```
+###指標練習2
+
+```C
+#include <stdio.h>
+int a[5]={0,10,20,30,40};
+void p1()
+{
+	for (int i=0;i<5;i++){
+		printf("%d",a[i]);
+	}
+	printf("\n");
+}
+int main()
+{
+	int *p= &a[2];
+	*p=222;
+	p1();
+	
+	p=p+2;
+	*p=666;
+	p1();
+
+	p--;
+
+	*p=555;
+	p1();
+}
+```
+###指標練習3
+```C
+#include <stdio.h>
+int a[10]={0,10,20,30,40,50,60,70,80,90};
+void p1()
+{
+	for (int i=0;i<10;i++){
+		printf("%d",a[i]);
+	}
+	printf("\n");
+}
+int main()
+{
+	int *p= &a[2];
+	*p=222;
+	p1();
+	
+	p=p+4;
+	*p=666;
+	p1();
+
+	p--;
+
+	*p=555;
+	p1();
+}
+```
+###指標練習4
+```C
+#include <stdio.h>
+#include <stdlib.h>
+int a[10];
+int main()
+{
+	int b[10];
+
+	int *p = (int*) malloc(sizeof(int)*10);
+	return 0;
+}
+```
