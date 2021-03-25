@@ -463,7 +463,7 @@ int main()
 }
 
 ```
-### 字元練習3 //失敗的
+### 字元練習3 //錯誤的版本
 ```c
 #include <stdio.h>
 int main()
