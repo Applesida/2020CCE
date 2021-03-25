@@ -432,3 +432,46 @@ int main()
 	printf("%f %f %f\n",f.x,f.y,f.z);
 }
 ```
+## 第五周
+
+### 字元練習1
+```c
+#include <stdio.h>
+char line[20]="233233233233233233";
+int main()
+{
+    char *p=line;
+    for (int i=0;line[i]!=0;i++){
+            p=&line[i];
+            char c=line[i];
+            if (c!='2') printf("%c",c);
+
+    }
+    printf("\n");
+
+}
+```
+### 字元練習2
+```c
+#include <stdio.h>
+int main()
+{
+    char line[10]="decline";
+    char line2[10]={'p','r','o','p','e','r','\0'};
+    printf("%s\n",line);
+    printf("%s\n",line2);
+}
+
+```
+### 字元練習3
+```c
+
+```
+### 字元練習4
+```c
+
+```
+### 字元練習5
+```c
+
+```
