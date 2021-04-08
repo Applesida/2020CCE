@@ -510,3 +510,58 @@ int main()
 }
 
 ```
+### 第六周
+###字串排序1
+```
+#include <stdio.h>
+#include <string.h>
+char a[100][10];
+char t[10];
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	for (int i=0; i<n; i++){
+		scanf("%s",a[i]);
+	}
+	for (int i=0;i<n;i++){
+		for (int j=i+1;j<n;j++){
+			if (strcmp(a[i],a[j]) >0){
+				strcpy(t,a[i]);
+				strcpy(a[i],a[j]);
+				strcpy(a[j],t);
+			}
+		}
+	}
+	for (int i=0;i<n;i++){
+		printf("%s\n",a[i]);
+	}
+}
+
+```c
+### 字串排序2
+```
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+char a[100][10];
+int compare( const void *p1, const void *p2)
+{
+	char *s1 = (char*)p1;
+	char *s2 = (char*)p2;
+	return strcmp(s1, s2);
+}
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	
+	for (int i=0;i<n;i++){
+		scanf("%s",a[i]);
+	}	
+	qsort( a, n, 10, compare);
+	for (int i=0;i<n;i++){
+		printf("%s\n",a[i]);
+	}
+}
+```c
