@@ -539,6 +539,7 @@ int main()
 }
 
 ```c
+
 ### 字串排序2
 ```
 #include <stdio.h>
@@ -564,4 +565,6 @@ int main()
 		printf("%s\n",a[i]);
 	}
 }
+
+
 ```c
