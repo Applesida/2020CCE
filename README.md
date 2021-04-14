@@ -512,7 +512,7 @@ int main()
 ```
 ### 第六周
 ###字串排序1
-```
+```C
 #include <stdio.h>
 #include <string.h>
 char a[100][10];
@@ -538,10 +538,10 @@ int main()
 	}
 }
 
-```c
+```
 
 ### 字串排序2
-```
+```C
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -559,7 +559,7 @@ int main()
 	
 	for (int i=0;i<n;i++){
 		scanf("%s",a[i]);
-	}	
+	}
 	qsort( a, n, 10, compare);
 	for (int i=0;i<n;i++){
 		printf("%s\n",a[i]);
@@ -567,4 +567,4 @@ int main()
 }
 
 
-```c
+```
