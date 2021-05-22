@@ -511,7 +511,7 @@ int main()
 
 ```
 ### 第六周
-###字串排序1
+### 字串排序1
 ```C
 #include <stdio.h>
 #include <string.h>
@@ -633,7 +633,7 @@ int main()
 	return 0;
 }
 ```
-##第八周
+## 第八周
 ### UVA 10226先試讀資料加印出來
 ```c
 #include <stdio.h>
@@ -695,7 +695,7 @@ int main()
 	}
 }
 ```
-##第十周
+## 第十周
 ### UVA 10008 讀字串加上印出來 ( 小心跳行)
 ```c
 #include <stdio.h>
