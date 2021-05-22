@@ -634,8 +634,24 @@ int main()
 }
 ```
 ##第八周
-### UVA 收尾
+### UVA 102先試讀資料加印出來
+```c
+#include <stdio.h>
+char tree[1000000][32];
+int main()
+{
+	int T;
+	scanf("%d\n\n",&T);
+	for (int t=0;t<T;t++){
+		for(int i=0;i<??;i++){
+			gets(tree[i]);
+		}
+	}
+	printf("%s\n",tree[i]);
+}
+```
 
+### UVA 收尾
 ```c
 #include <stdio.h>
 #include <stdlib.h>
