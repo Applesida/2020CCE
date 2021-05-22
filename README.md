@@ -568,3 +568,72 @@ int main()
 
 
 ```
+## 第七周
+### ctutor試用練習
+```c
+#include <stdio.h>
+int main()
+{
+	for(int i=0; i<10; i++){
+		printf("Hello world");
+	}
+	return 0;
+}
+```
+### 字串排序 (qsort 版本)
+
+```c
+#incldue <stdio.h>
+#include <string.h>
+#incldue <stdlib.h>
+char a[100][10];
+int compare ( const void *p1 , const void *p2) 
+{
+	char *s1= (char *)p1;
+	char *s2= (char *)p2;
+	return strcmp (s1,s2);
+}
+int main()
+{
+	int n;
+	scanf("%d",&n);
+
+	for ( int i=0; i<n;i++){
+		scanf("%s",a[i]);
+	}
+	qsort (a, n ,10, compare);
+	for (int i=0; i<n ,i++){
+		printf("%s\n",a[i]);
+	}
+}
+```
+### 使用ctutor 的解說線條及更改
+
+```c
+#include <stdio.h>
+char *p1, *p2;
+char line[4][10]={"jkl","ghi","def","abc"};
+char t[10];
+int main()
+{
+	int n=4;
+	for (int i=0;i<n;i++){
+		for (int j=i+1;j<n;j++){
+		p1=line[i];p2=line[j];
+		if (strcmp( line[i],line[j])>0){
+			strcpy(t,line[i]);
+			strcpy(line[i],line[j]);
+			strcpy(line[j],t);
+			}	
+		}
+	}
+	for(int i=0;i<n;i++){
+		printf("%s\n",line[i]);
+	}
+	return 0;
+}
+```
+###
+
+```c
+```
