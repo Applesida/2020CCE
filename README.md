@@ -842,3 +842,420 @@ int main()
 	}
 }
 ```
+## 第十一周
+### 認識typedef 
+```c
+#include<stdio.h>
+unsigned char c;
+typedef unsigned char unchar;
+unchar d;
+int main()
+{
+    c='A';
+    d = c;
+    printf("%c", d);
+}
+```
+### 練習 typedef struct data
+```c
+#include<stdio.h>
+typedef struct data{
+    char c;
+    int ans;
+} DATA;
+///struct data listA;
+DATA listA;
+
+int main()
+{
+    listA.c = 'A';
+    listA.ans=1;
+
+    printf("%c %d\n", listA.c, listA.ans );
+
+}
+```
+### 適用qsort compare
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int compare( const void*p1, const void*p2)
+{
+    int d1 = ( (int)p1 );
+    int d2 = ( (int)p2 );
+    if(d1>d2) return 1;
+    if(d1==d2) return 0;
+    if(d1<d2) return -1;
+}
+int a[10] = {4,8,3,7,5,2,9,1,6,10};
+int main()
+{
+    qsort ( a, 10, sizeof(int), compare);
+    for( int i=0 ; i<10 ; i++){
+        printf("%d ", a[i] );
+    }
+}
+```
+### UVA 10008 練習
+```c
+#include <stdio.h>
+char line [2000]; //其實[1001]就可以了
+int ans[256];//統計出現的次數, ex. ans[65] 代表 必65個字母出現次數
+int main()
+{
+	//迴圈
+	//step01: Input 一次1行, 100字母 (Q:不知道有幾行)
+				//一次1行: 成功時有指標,失敗變NULL
+	for(int t=0; gets(line)!=NULL ; t++){
+		//step5:把資料清空
+		for( int i=0 ; i<256 ; i++) ans[i]=0;
+		
+		//step3: 在一行中,每個字母慢慢分析
+		for( int i=0 ; line[i]!=0 ; i++){
+			char c=line[i];
+			ans[c]++;//這個字母++
+		}
+		
+		//欠 排序
+		
+		if(t>0) printf("\n");//step02:跳行問題
+		
+		for(int i=0 ; i<256 ; i++){
+			if(ans[i]>0) printf("%d %d\n", i, ans[i]);
+		}
+		
+	}//奇怪的迴圈
+}
+```
+### compare 複雜版練習
+```c 
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+char name[100][82];
+char other[100];
+int compare( const void *p1 , const void *p2)
+{
+	char d1= *( (int *)p1 );
+	char d2= *( (int *)p2 );
+	if (d1>d2)	return 1;
+	if (d1==d2) return 0;
+	if (d1<d2)	return -1;
+}
+int main()
+
+{
+	int n;
+	scanf("%d",&n);
+	for (int i=0;i<n;i++){
+		scanf("%s",name[ i ]);
+		gets(other);
+	}
+	qsort (name , n , 82 ,compare);
+	
+	int ans=1;
+	printf("%s",name[ 0 ]);
+	for (int i=0;i<n-1;i++){
+		if ( strcmp( name[ i ] , name[ i+1 ] )!=0){
+			printf(" %d\n",ans);
+			printf("%s",name[i+1]);
+			ans=1;
+		}
+		else {
+			ans++;
+		}
+	}
+	printf(" %d\n",ans);
+}
+
+```
+## 第十二周
+### UVA 10062 依字母頻率由少排到多
+```c
+#include <stdio.h>
+char line[2000];
+int main()
+{
+	for (int t=0; gets(line) ; t++){
+		int ans[256]={};
+		
+		char ascii[256];
+		for (int i=0; i<256;i++) ascii[i]=i;
+			
+		for (int i=0; line[i]!=0; i++){
+			char c=line[i];
+			ans[c]++;
+		}
+		
+		for (int i=0;i<256; i++){
+			for( int j=i+1; j<256;j++){
+				if (ans[i]>ans[j]) {
+					int t=ans[i];
+					ans[i]=ans[j];
+					ans[j]=t;
+					char c=ascii[i];
+					ascii[i]=ascii[j];
+					ascii[j]=c;
+				}
+			}
+		}
+		if (t>0) printf("\n");
+		for (int i=0; i<256; i++){
+			if (ans[i]>0 ) printf("%d %d\n", ascii[i], ans[i]);
+		}
+	}
+}
+```
+### UVA 10062 完成字母頻率相同時 字母大小順序
+```c
+#include <stdio.h>
+char line[2000];
+int main()
+{
+	for (int t=0; gets(line) ; t++){
+		int ans[256]={};
+		
+		char ascii[256];
+		for (int i=0; i<256;i++) ascii[i]=i;
+			
+		for (int i=0; line[i]!=0; i++){
+			char c=line[i];
+			ans[c]++;
+		}
+		
+		for (int i=0;i<256; i++){
+			for( int j=i+1; j<256;j++){
+				if (ans[i]>ans[j]) {
+					int t=ans[i];
+					ans[i]=ans[j];
+					ans[j]=t;
+					char c=ascii[i];
+					ascii[i]=ascii[j];
+					ascii[j]=c;
+				}
+				if (ascii[i] < ascii[j] && ans[i]== ans[j]){
+					int t=ans[i];
+					ans[i]=ans[j];
+					ans[j]=t;
+					char c=ascii[i];
+					ascii[i]=ascii[j];
+					ascii[j]=c;	
+				}
+			}
+		}
+		if (t>0) printf("\n");
+		for (int i=0; i<256; i++){
+			if (ans[i]>0 ) printf("%d %d\n", ascii[i], ans[i]);
+		}
+	}
+}
+```
+### UVA 299 交換火車 先解決input output
+```c
+#include <stdio.h>
+int a[100];
+int main()
+{
+	int n;
+	scanf("%d",&n);
+
+	for (int i=0;i<n;i++){
+		int m;
+		scanf("%d",&m);
+
+	for (int i=0;i<m;i++){
+		scanf("%d",&a[i]);
+	}
+
+	int ans=0;
+	printf("Optimal train swapping takes %d swaps.\n",ans);
+	}
+}
+```
+### 接續上面 完成泡泡排序法 算出正確答案
+```c
+#include <stdio.h>
+int a[100];
+int main()
+{
+	int n;
+	scanf("%d",&n);
+
+	for (int i=0;i<n;i++){
+		int m;
+		scanf("%d",&m);
+
+	for (int i=0;i<m;i++){
+		scanf("%d",&a[i]);
+	}
+
+	int ans=0;
+	
+	for(int i=0;i<m;i++){
+		for ( int j=i+1;j<m;j++){
+			if (a[i]>a[j]){
+				int t=a[i];
+				a[i]=a[j];
+				a[j]=t;
+				ans++;
+			}
+		}
+	}
+
+	printf("Optimal train swapping takes %d swaps.\n",ans);
+	}
+}
+```
+### UVA 11321 排排排序 先解決input output 
+```c
+#include <stdio.h>
+int a[10000];
+int main()
+{
+	int n,m;
+	while ( scanf("%d%d",&n,&m)==2 ){
+		for (int i=0;i<n;i++){
+			scanf("%d",&a[i]);
+		}
+		printf("%d %d\n",n,m);
+		for(int i=0;i<n;i++){
+			printf("%d\n",a[i]);
+		}
+	}
+
+}
+```
+### 接續上面 看懂他的排序並算出正確答案
+```c
+#include <stdio.h>
+int a[10000];
+void swap(int i,int j)
+{
+	int t=a[i];
+	a[i]=a[j];
+	a[j]=t;
+}
+int main()
+{
+	int n,m;
+	while ( scanf("%d%d",&n,&m)==2 ){
+		
+		for (int i=0;i<n;i++){
+			scanf("%d",&a[i]);
+		}
+		
+		for (int i=0;i<n;i++){
+			for (int j=i+1;j<n;j++){
+				if ( a[i]%m > a[j]%m ) swap(i,j);
+				if ( a[i]%m == a[j]%m && a[i]%2==0 && a[j]%2!=0 ) swap(i,j);
+				if ( a[i]%m == a[j]%m && a[i]%2!=0 && a[j]%2!=0 && a[i] < a[j] ) swap(i,j);
+				if ( a[i]%m == a[j]%m && a[i]%2==0 && a[j]%2==0 && a[i] > a[j] ) swap(i,j);
+			}
+		}
+		printf("%d %d\n",n,m);
+		for (int i=0;i<n;i++){
+			printf("%d\n",a[i]);
+		}
+	}
+}
+```
+## 第十三周 
+## Processing 
+###  預設大小跟背景顏色
+```c
+size(1024, 400);
+background( 52, 141, 247 );
+```
+### 配合 void setup(), void draw() 
+```c
+void setup(){//只做一次的設定
+  size(1024, 400);
+}
+void draw(){//互動版本,每秒畫60次
+  if( mousePressed ) background(255, 0, 255);//按下去時 紫色
+  else background( 52, 141, 247 );//否則 淡藍色
+}
+```
+###  利用 void mousePressed() 來做互動, 讓 text() 可以秀出不同的點擊次數
+```c
+void setup(){//只做一次的設定
+  size(1024, 400);
+}
+void draw(){//互動版本,每秒畫60次
+  if( mousePressed ) background(255, 0, 255);//按下去時 紫色
+  else background( 52, 141, 247 );//否則 淡藍色
+}
+```
+### 文字的大小textSize()還有文字的加法
+```c
+void setup(){//只做一次的設定
+  size(1024, 400);
+}
+void draw(){//互動版本,每秒畫60次
+  if( mousePressed ) background(255, 0, 255);//按下去時 紫色
+  else background( 62, 141, 247 );//否則 淡藍色
+  textSize(80);//文字的大小
+  text("中文壞掉Now a is" + a, 212, 200);//畫出文字
+}//目標:文字全系列都教一下!!!大小
+int a=0;
+void mousePressed(){
+   a++; 
+}
+```
+### 了解hour(),minute(),second() 再用字串加法加長起來
+```c
+void setup(){//開新的
+  size(1024,400);
+}|
+void draw(){
+  background(#3E8DF7);//色碼
+  int s = second();   //Value from 0 - 59
+  int m = minute();   //Value from 0 - 59
+  int h = hour();     //Value from 0 - 23
+  textSize(80);
+  text( h + ":" + m + ":" + s, 100, 200);
+}   //數字  字串 數字 字串 數字
+```
+### 將秒、分、時,換算出總秒數,目標總秒數-現在總秒數,得到剩下總秒數
+```c
+void setup(){//開新的
+  size(1024,400);
+  textFont( createFont("標楷體", 80));
+}
+void draw(){
+  background(#3E8DF7);//色碼
+  int s = second();   //Value from 0 - 59
+  int m = minute();   //Value from 0 - 59
+  int h = hour();     //Value from 0 - 23
+  textSize(80);
+  text( h + ":" + m + ":" + s, 100, 200);
+  int total = s + 60*m + 60*60*h;//現在總秒數
+  int closeH=17, closeM=40, closeS=0;//下課的精確時間
+  int total2=closeS + 60*closeM + 60*60*closeH;//目標總秒數
+  int ans = total2 - total;
+  text( "剩下幾秒:" + ans, 100, 100);
+}   //數字  字串 數字 字串 數字
+```
+### 把總秒數,用找零錢的方法,變出時、分、秒
+```c
+void setup(){//開新的
+  size(1024,400);
+  textFont( createFont("標楷體", 80));
+}
+void draw(){
+  background(#3E8DF7);//色碼
+  int s = second();   //Value from 0 - 59
+  int m = minute();   //Value from 0 - 59
+  int h = hour();     //Value from 0 - 23
+  textSize(80);
+  text( h + ":" + m + ":" + s, 100, 200);
+  int total = s + 60*m + 60*60*h;//現在總秒數
+  int closeH=17, closeM=40, closeS=0;//下課的精確時間
+  int total2=closeS + 60*closeM + 60*60*closeH;//目標總秒數
+  int ans = total2 - total;
+  text( "剩下幾秒:" + ans, 100, 100);
+  int ansH=ans/60/60%60,  ansM=ans/60%60, ansS=ans%60;
+  text(ansH  +  ":" + ansM +  ":" + ansS, 100, 300);
+}   //數字  字串 數字 字串 數字
+```
