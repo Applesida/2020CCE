@@ -1259,3 +1259,104 @@ void draw(){
   text(ansH  +  ":" + ansM +  ":" + ansS, 100, 300);
 }   //數字  字串 數字 字串 數字
 ```
+## 第十四周
+### 亂數random()抽個浮點數的數字,並畫出來
+```c
+void setup(){
+   float ans=random(60);//亂數,會是<60的浮點數
+   text(ans,20,20);
+}
+void draw(){
+  
+}
+```
+### 用mousePressed互動方式產生整數的亂數
+```c
+int ans=0;
+void setup(){
+   size(300,300);
+   textSize(30);
+}
+void draw(){
+  background(#435FF7);
+  text( ans,150,150);
+}
+void mousePressed(){//按下去，就互動一次
+   ans=(int )random(60); //浮點數不能變整數
+}
+```
+### 洗牌 亂數1，亂數2
+```c
+int []a={1,2,3,4,5,6,7,8,9,10};
+int i1,i2;
+void setup(){
+   size(400,100);
+   textSize(30);
+}
+void draw(){
+   background(#57869B);
+   for (int i=0;i<10;i++){
+     text( a[i], i*40, 50);      
+   }
+   rect(i1*40, 50 ,30 ,30);// (x座標 ,  y座標 ,框框長, 框框寬)
+   rect(i2*40, 50 ,30 ,30);
+}
+void mousePressed(){
+   i1= (int ) random(10);
+   i2= (int ) random(10);
+   int t=a[i1]; a[i1]=a[i2];a[i2]=t;
+   
+}
+```
+### 大樂透洗牌 配合mousePressed印出數字
+```c
+int []a= new int [47];
+void setup(){
+   size(500,200);
+   textSize(30);
+   for (int i=0;i<47;i++) a[i]=i;
+   //讓a[i]的陣列裡，整齊放入正確數字
+   for (int i=0;i<1000;i++){//洗1000次牌
+        int i1=(int )random(47);
+        int i2=(int )random(47);
+        int t=a[i1]; a[i1]=a[i2]; a[i2]=t;
+   }
+}
+int n=0;
+void draw(){
+   background( #57869B);
+   for (int i=0;i<n;i++){//印出五個數
+      text(a[i] , i*80,100); 
+   }
+}
+void mousePressed(){
+	n++;
+}
+```
+### 文字對其中和加個圈圈
+```c
+int []a= new int [47];
+void setup(){
+   size(500,200);
+   textSize(30);
+   for (int i=0;i<47;i++) a[i]=i;
+   //讓a[i]的陣列裡，整齊放入正確數字
+   for (int i=0;i<1000;i++){//洗1000次牌
+        int i1=(int )random(47);
+        int i2=(int )random(47);
+        int t=a[i1]; a[i1]=a[i2]; a[i2]=t;
+   }
+}
+int n=0;
+void draw(){
+   background( #57869B);
+   textAlign(CENTER,CENTER);//文字對齊: 中，中
+   for (int i=0;i<n;i++){//印出五個數
+      fill(255); ellipse(   i*80+40, 100,55,55);
+      fill(0); text(a[i],i*80+40,100);
+   }
+}
+void mousePressed(){
+ n++; 
+}
+```
