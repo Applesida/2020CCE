@@ -1,0 +1,12 @@
+int ans=0;
+void setup(){
+   size(300,300);
+   textSize(30);
+}
+void draw(){
+  background(#57869B);
+  text( ans,150,150);
+}
+void mousePressed(){//按下去，就互動一次
+   ans=(int )random(60); //浮點數不能變整數
+}

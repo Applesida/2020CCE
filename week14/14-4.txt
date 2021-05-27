@@ -1,0 +1,22 @@
+int []a= new int [47];
+void setup(){
+   size(500,200);
+   textSize(30);
+   for (int i=0;i<47;i++) a[i]=i;
+   //讓a[i]的陣列裡，整齊放入正確數字
+   for (int i=0;i<1000;i++){//洗1000次牌
+        int i1=(int )random(47);
+        int i2=(int )random(47);
+        int t=a[i1]; a[i1]=a[i2]; a[i2]=t;
+   }
+}
+int n=0;
+void draw(){
+   background( #57869B);
+   for (int i=0;i<n;i++){//印出五個數
+      text(a[i] , i*80,100); 
+   }
+}
+void mousePressed(){
+ n++; 
+}
