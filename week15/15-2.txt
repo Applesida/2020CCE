@@ -1,0 +1,9 @@
+void setup(){
+   size(400,200);
+   textSize(40);
+}
+void draw(){
+  int s=second();  
+  background(#2AD1B9);
+  text( 10-s%11 , 100,100);
+}

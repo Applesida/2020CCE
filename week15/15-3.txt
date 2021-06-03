@@ -1,0 +1,13 @@
+import processing.sound.*;
+SoundFile player;
+void setup(){
+ size(400,200);
+ player=new SoundFile(this, "tada.mp3");
+ 			    ///要下載音樂
+}
+void draw(){
+  background(#2AD1B9);
+}
+void mousePressed(){
+ player.play(); 
+}
