@@ -1161,7 +1161,9 @@ int main()
 }
 ```
 ## 第十三周 
+
 ## Processing 
+
 ###  預設大小跟背景顏色
 ```c
 size(1024, 400);
@@ -1352,11 +1354,90 @@ void draw(){
    background( #57869B);
    textAlign(CENTER,CENTER);//文字對齊: 中，中
    for (int i=0;i<n;i++){//印出五個數
-      fill(255); ellipse(   i*80+40, 100,55,55);
+      fill(255); ellipse( i*80+40, 100,55,55);
       fill(0); text(a[i],i*80+40,100);
    }
 }
 void mousePressed(){
  n++; 
+}
+```
+## 第15周
+### 利用奇偶數調顏色
+```c
+void setup(){
+    size(400,200);
+}  
+void draw(){
+   int s=second();
+   if (s%2==0) background(#1B6C93);
+   else background(#2AD1B9);
+}
+```
+### 倒數計時_利用秒數、餘數、減法,做出10到0的倒數計時
+```c
+void setup(){
+   size(400,200);
+   textSize(40);
+}
+void draw(){
+  int s=second();  
+  background(#2AD1B9);
+  text( 10-s%11 , 100,100);
+}
+```
+
+### 按滑鼠發出tada
+```c
+import processing.sound.*;
+SoundFile player;
+void setup(){
+ size(400,200);
+ player=new SoundFile(this, "tada.mp3");
+ 			    ///要下載音樂
+}
+void draw(){
+  background(#2AD1B9);
+}
+void mousePressed(){
+ player.play(); 
+}
+```
+### 用 player的isPlaying()來決定stop()或play()
+```c
+import processing.sound.*;
+SoundFile player;
+void setup(){
+ size(400,200);
+ player=new SoundFile(this, "bell.mp3");
+}
+void draw(){
+  background(#2AD1B9);
+}
+void mousePressed(){
+  if (player.isPlaying() ){
+     player.stop(); 
+  }
+  else{
+  player.play();
+  }
+}
+```
+### 整合倒數計時+tada
+```c
+import processing.sound.*;
+SoundFile player;
+void setup(){
+   size(400,200);
+   textSize(40);
+   player=new SoundFile(this, "tada.mp3");
+}
+void draw(){
+   int s=second();
+   background(58,114,191);
+   text(10- s%11, 100, 100);
+   if (10 -s%11 ==0 && !player.isPlaying() ){
+      player.play(); 
+   }
 }
 ```
