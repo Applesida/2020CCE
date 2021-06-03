@@ -395,7 +395,9 @@ int main()
 	}
 }
 ```
+
 ### struct 結構練習4
+
 ```c
 #incldue <stdio.h>
 struct DATA{
@@ -414,6 +416,7 @@ int main()
 }
 ```
 ### struct 結構練習5
+
 ```c
 #incldue <stdio.h>
 struct DATA{
