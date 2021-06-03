@@ -3,7 +3,7 @@
 ## 第一週
 
 ### 進階題:分式化簡
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -15,7 +15,7 @@ int main()
 }
 ```
 ## 進階題：讀入整數反序列印
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -32,7 +32,7 @@ int main()
 ```
 
 ## 進階題：A的B次方函數
-```C
+```c
 #include <stdio.h>
 int MYPOWER(int n,int m)
 {
@@ -51,7 +51,7 @@ int main(void)
 }
 ```
 ## 進階題：漸增數列相加 
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -65,7 +65,7 @@ int main()
 }
 ```
 ## 基礎題：找零錢 
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -75,7 +75,7 @@ int main()
 }
 ```
 ## 基礎題：因數個數 
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -88,7 +88,7 @@ int main()
 }
 ```
 ## 基礎題：找倍數 
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -105,7 +105,7 @@ int main()
 }
 ```
 ## 基礎題：整數轉換為等級
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -120,7 +120,7 @@ int main()
 # 第二週
 
 ## 現在改用陣列 int n[3]={10, 20, 30}, 再用指標, 去改裡面的值
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -142,7 +142,7 @@ int main()
 
 ```
 ## 進階題：大小寫轉換
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -165,7 +165,7 @@ int main()
 }
 ```
 ## 進階題：漸增數列相加
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -178,7 +178,7 @@ int main()
 }
 ```
 ## 進階題：計算陣列的平方值
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -192,7 +192,7 @@ int main()
 }
 ```
 ## 進階題：2進位轉10進位 
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -207,7 +207,7 @@ int main()
 }
 ```
 ## 基礎題：計算幾週與幾天
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -217,7 +217,7 @@ int main()
 }
 ```
 ## 基礎題：計程車資計算
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -229,7 +229,7 @@ int main()
 }
 ```
 ## 基礎題：兩數間可被5整除的整數
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -245,7 +245,7 @@ int main()
 }
 ```
 ## 基礎題：整數間最大距離 
-```C
+```c
 #include <stdio.h>
 int main()
 {
@@ -272,7 +272,7 @@ int main()
 ## 第三週
 ### 指標練習1
 
-```C
+```c
 #include <stdio.h>
 int a[5]={0,10,20,30,40};
 int main()
@@ -286,7 +286,7 @@ int main()
 ```
 ### 指標練習2
 
-```C
+```c
 #include <stdio.h>
 int a[5]={0,10,20,30,40};
 void p1()
@@ -313,7 +313,7 @@ int main()
 }
 ```
 ### 指標練習3
-```C
+```c
 #include <stdio.h>
 int a[10]={0,10,20,30,40,50,60,70,80,90};
 void p1()
@@ -340,7 +340,7 @@ int main()
 }
 ```
 ### 指標練習4
-```C
+```c
 #include <stdio.h>
 #include <stdlib.h>
 int a[10];
@@ -354,7 +354,7 @@ int main()
 ```
 ## 第四週
 ### struct 結構練習1
-```C
+```c
 #incldue <stdio.h>
 struct DATA{
 	float x,y,z;
@@ -365,7 +365,7 @@ int main()
 }
 ```
 ### struct 結構練習2
-```C
+```c
 #incldue <stdio.h>
 struct DATA{
 	float x,y,z;
@@ -379,7 +379,7 @@ int main()
 }
 ```
 ### struct 結構練習3
-```C
+```c
 #incldue <stdio.h>
 struct DATA{
 	float x,y,z;
@@ -396,7 +396,7 @@ int main()
 }
 ```
 ### struct 結構練習4
-```C
+```c
 #incldue <stdio.h>
 struct DATA{
 	float x,y,z;
@@ -414,7 +414,7 @@ int main()
 }
 ```
 ### struct 結構練習5
-```C
+```c
 #incldue <stdio.h>
 struct DATA{
 	float x,y,z;
