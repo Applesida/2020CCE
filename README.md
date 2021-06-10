@@ -1444,3 +1444,80 @@ void draw(){
    }
 }
 ```
+## 第十六周
+### 設定轉盤形狀 位置
+```c
+void setup(){
+   size(400,200);
+
+}
+void draw(){
+   background(#0A6D93) ;
+   fill(255);
+   ellipse(50,50,80,80);
+   
+   fill(255,0,0);
+   float stop=mouseX/50.0;
+   text( stop , 100,100);
+   arc(50,50, 80, 80,  0 , stop);
+   ////圓心   寬  高  開始 結束
+}
+```
+### 設定轉盤內容顏色 區塊
+```c
+void setup(){
+   size(400,200);
+
+}
+void draw(){
+   background(#0A6D93) ;
+   fill(255);
+   ellipse(50,50,80,80);
+   
+   fill(255,0,0);
+   float start=mouseX/50.0;
+   for (int i=0;i<24;i++){
+      float shift =2*PI*i/24.0;
+      if (i%3==0) fill(0);
+      if (i%3==1) fill(#FFF86C);
+      if (i%3==2) fill(255);
+      if (i==0) fill(#FA8A12);
+       arc(100,100, 180,180, shift+0+start, shift+PI/12+start);
+         ////圓心   寬  高   開始           結束  
+ }
+  
+}
+```
+### 最終轉盤
+```c
+void setup(){
+   size(400,200);
+
+}
+float start=0,v;
+void mousePressed(){
+   v=random(1); 
+}
+void draw(){
+   background(#0A6D93) ;
+   if(v > 0.001){
+      start +=v;
+      v*=0.99;
+   }
+   //if (start <10) start+=0.01;
+   fill(255);text( start ,200, 150);
+   text( v,200,170);
+   
+   fill(255,0,0);
+   for (int i=0;i<24;i++){
+      float shift =2*PI*i/24.0;
+      if (i%3==0) fill(0);
+      if (i%3==1) fill(#FFF86C);
+      if (i%3==2) fill(255);
+      if (i==0) fill(#FA8A12);
+       arc(100,100, 180,180, shift+0+start, shift+PI/12+start);
+         ////圓心   寬  高   開始           結束  
+ }
+  
+}
+```
