@@ -1,0 +1,12 @@
+void setup(){
+  size(400,200);
+  textSize(40);
+}
+String line ="hello";
+char c='9';
+void draw(){
+    background(#3ABECB);
+    text( line , 100 , 100 );
+    text("World:"+key, 100 ,150 );
+    //key 會對應你最後按下鍵盤的按鍵(字母、數、符號)
+}
