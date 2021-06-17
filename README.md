@@ -1521,3 +1521,63 @@ void draw(){
   
 }
 ```
+## 第十七周
+### 打字遊戲 按鍵決定列印出的字母
+```c
+void setup(){
+  size(400,200);
+  textSize(40);
+}
+String line ="hello";
+char c='9';
+void draw(){
+    background(#3ABECB);
+    text( line , 100 , 100 );
+    text("World:"+key, 100 ,150 );
+    //key 會對應你最後按下鍵盤的按鍵(字母、數、符號)
+}
+```
+### 按完後更新字母
+```c
+void setup(){
+    size(400, 200);
+    textSize(40);
+}
+char c='9';
+String ans="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int win=0;
+void draw(){
+  background(#3ABECB);
+  text("Press:"+c , 100, 100);
+  text("You:" +key , 100 , 150);
+  if (c==key) win=1;
+  else win=0;
+  
+  if (win==1) {
+    text("You Win!",100,50);
+     int i=int (random(26+26) );
+     c=ans.charAt(i);
+  }
+}
+```
+### 最終輸入&上下比對
+```c
+String A="mother";//可修改內容
+String line="";
+void setup(){
+    size(400,300 ); 
+    textSize(40);
+}
+void draw(){
+  background(0);
+  text(A , 100 ,100 );
+  text( line +"|" , 100 ,150);
+}
+void keyPressed(){
+  int len= line.length();
+  if ( key>='a' && key<='z' )  line = line + key;//小寫
+  if ( key>='A' && key<='Z' )  line = line + key;//大寫
+  if ( key==ENTER ) {  }//比對是否正確
+  if ( key==BACKSPACE  && len>0 )  line= line.substring(0,len-1) ;//倒退刪掉
+}///按下backspace時 要把line變短
+```
